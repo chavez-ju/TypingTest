@@ -25,8 +25,13 @@ namespace TypingTest
         public int GrossWPM(Stopwatch sw)
         {
             TimeSpan tw = sw.Elapsed;
-            double GrossDouble = (TypedEntries / GrossConst) / tw.TotalMinutes;
-            return Convert.ToInt32(Math.Round(GrossDouble, 0));
+            double grossDouble = (TypedEntries / GrossConst) / tw.TotalMinutes;
+            return Convert.ToInt32(Math.Round(grossDouble, 0));
+        }
+        public void SentenceDisplay()
+        {
+            Sentence sentence = new Sentence();
+            Console.WriteLine(sentence.SentenceStr + "\n");
         }
     }
 

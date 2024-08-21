@@ -9,11 +9,12 @@ namespace TypingTest
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Start Typing when you are ready! Click Enter when you would like to stop.");
-
             TypingTester tester = new TypingTester();
             ConsoleKeyInfo cki = new ConsoleKeyInfo();
             Stopwatch sw = new Stopwatch();
+
+            Console.WriteLine("Start Typing when you are ready!\n");
+            tester.SentenceDisplay();
 
             do
             {
@@ -26,7 +27,7 @@ namespace TypingTest
                 }
 
                 // In order for the enter input to not count
-                if (cki.Key != ConsoleKey.Enter)
+                if (cki.Key != ConsoleKey.Enter && cki.Key != ConsoleKey.Backspace)
                 {
                     tester.EntryCountAdd();
                 }
@@ -40,7 +41,8 @@ namespace TypingTest
             */
 
             Console.WriteLine("GrossWPM: " + tester.GrossWPM(sw));
-
+            Console.WriteLine(tester.TypedEntries);
+            
         }
     }
 }

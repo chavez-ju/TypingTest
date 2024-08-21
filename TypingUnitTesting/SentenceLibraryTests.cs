@@ -15,6 +15,9 @@ namespace TypingUnitTesting
             int expected = 724;
 
             Assert.AreEqual(expected, lib.Library.Count);
+
+            string expStr = "My Mum tries to be cool by saying that she likes all the same things that I do.";
+            Assert.AreEqual(expStr, lib.Library[1]);
         }
     }
 }

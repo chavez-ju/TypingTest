@@ -5,6 +5,8 @@ VisualStudioVersion = 17.11.35208.52
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TypingTest", "TypingTest\TypingTest.csproj", "{6D84BFBC-51BC-485A-A400-42728F4DAAFE}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TypingUnitTesting", "TypingUnitTesting\TypingUnitTesting.csproj", "{15B64FF8-0D47-4563-888D-36076669D81B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{6D84BFBC-51BC-485A-A400-42728F4DAAFE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6D84BFBC-51BC-485A-A400-42728F4DAAFE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6D84BFBC-51BC-485A-A400-42728F4DAAFE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{15B64FF8-0D47-4563-888D-36076669D81B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{15B64FF8-0D47-4563-888D-36076669D81B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{15B64FF8-0D47-4563-888D-36076669D81B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{15B64FF8-0D47-4563-888D-36076669D81B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

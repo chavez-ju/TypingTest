@@ -44,12 +44,12 @@ namespace TypingUnitTesting
         {
             TypingTester t = new TypingTester();
 
-            string s1 = "Hello I am well";
-            string s2 = "hola i not well";
+            string s1 = " Nancy was proud that she ran a tight shipwreack";
+            string s2 = "Nancy was proud that she ran a tight shipwreck.";
             
             int actual = t.MinDistance(s1, s2);
 
-            int expected = 8;
+            int expected = 3;
 
             Assert.AreEqual(expected, actual);
             

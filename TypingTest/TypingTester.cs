@@ -14,9 +14,12 @@ namespace TypingTest
 
         public double TypedEntries {  get; set; }
 
+        public Sentence sentence { get; set; }
+
         public TypingTester()
         {
             TypedEntries = 0.0;
+            sentence = new Sentence();
         }
         public void EntryCountAdd()
         {
@@ -31,7 +34,6 @@ namespace TypingTest
         }
         public string SentenceDisplay()
         {
-            Sentence sentence = new Sentence();
             return sentence.SentenceStr;
         }
         // Levenshtein distance - s2 is the targeted (correct) phrase - for char
@@ -92,5 +94,9 @@ namespace TypingTest
             return Convert.ToInt32(Math.Round(grossDouble, 0));
         }
 
+        public double Accuracy(int correct, int total)
+        {
+            return (Convert.ToDouble(correct) / Convert.ToDouble(total) * 100);
+        }
     }
 }

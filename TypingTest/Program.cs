@@ -70,13 +70,10 @@ namespace TypingTest
             sw.Stop();
 
             int errors = tester.MinDistance(userString, tester.SentenceDisplay());
-
-            //var regex = new Regex(@"\s+");
-            //int originalLength = Convert.ToInt32(regex.Replace(tester.SentenceDisplay(), " ")?.Split(' ')?.Count());
-            //int correct = originalLength - errors;
+            int correct = tester.SentenceDisplay().Length - errors;
 
             Console.WriteLine("\nNetWPM: " + tester.NetWPM(errors, sw));
-            //Console.WriteLine("Accuracy: " + (tester.Accuracy(correct, originalLength) * 100) + "%");
+            Console.WriteLine("Accuracy: " + tester.Accuracy(correct, tester.SentenceDisplay().Length) + "%");
             Console.WriteLine(tester.TypedEntries);
             
         }

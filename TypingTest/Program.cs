@@ -2,6 +2,7 @@
 using System.IO;
 using System.Globalization;
 using System.Diagnostics;
+using System.Text.RegularExpressions;
 
 namespace TypingTest
 {
@@ -10,37 +11,72 @@ namespace TypingTest
         static void Main(string[] args)
         {
             TypingTester tester = new TypingTester();
-            ConsoleKeyInfo cki = new ConsoleKeyInfo();
+            //ConsoleKeyInfo cki = new ConsoleKeyInfo();
             Stopwatch sw = new Stopwatch();
 
             Console.WriteLine("Start Typing when you are ready!\n");
-            tester.SentenceDisplay();
+            Console.WriteLine(tester.SentenceDisplay());
+
+            string userString = "";
+            int curIndex = 0;
 
             do
             {
-                cki = Console.ReadKey();
+                ConsoleKeyInfo cki = Console.ReadKey(true);
 
-                //for initial start
                 if (tester.TypedEntries == 0)
                 {
                     sw.Start();
                 }
 
-                // In order for the enter input to not count
-                if (cki.Key != ConsoleKey.Enter && cki.Key != ConsoleKey.Backspace)
+                // handle Esc
+                if (cki.Key == ConsoleKey.Escape)
                 {
+                    Console.WriteLine();
+                    break;
+                }
+
+                // handle Enter
+                if (cki.Key == ConsoleKey.Enter)
+                {
+                    Console.WriteLine();
+                    break;
+                }
+
+                // handle backspace
+                if (cki.Key == ConsoleKey.Backspace)
+                {
+                    if (curIndex > 0)
+                    {
+                        userString = userString.Remove(userString.Length - 1);
+                        Console.Write(cki.KeyChar);
+                        Console.Write(' ');
+                        Console.Write(cki.KeyChar);
+                        curIndex--;
+                    }
+                }
+
+                else
+                // handle all other keypresses
+                {
+                    userString += cki.KeyChar;
+                    Console.Write(cki.KeyChar);
+                    curIndex++;
                     tester.EntryCountAdd();
                 }
-            } while (cki.Key != ConsoleKey.Enter);
-            sw.Stop();
-       
-            /*
-            string elapsedTime = String.Format("{0:00}:{1:00}:{2:00}.{3:00}",
-                ts.Hours, ts.Minutes, ts.Seconds,
-                ts.Milliseconds / 10);
-            */
 
-            Console.WriteLine("GrossWPM: " + tester.GrossWPM(sw));
+            } while (true);
+
+            sw.Stop();
+
+            int errors = tester.MinDistance(userString, tester.SentenceDisplay());
+
+            //var regex = new Regex(@"\s+");
+            //int originalLength = Convert.ToInt32(regex.Replace(tester.SentenceDisplay(), " ")?.Split(' ')?.Count());
+            //int correct = originalLength - errors;
+
+            Console.WriteLine("\nNetWPM: " + tester.NetWPM(errors, sw));
+            //Console.WriteLine("Accuracy: " + (tester.Accuracy(correct, originalLength) * 100) + "%");
             Console.WriteLine(tester.TypedEntries);
             
         }

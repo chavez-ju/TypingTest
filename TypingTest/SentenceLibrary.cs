@@ -9,7 +9,6 @@ namespace TypingTest
     public class SentenceLibrary
     {
         public List<string> Library {  get; set; }
-
         public SentenceLibrary()
         {
             Library = new List<string>();
@@ -23,9 +22,7 @@ namespace TypingTest
             {
                 Library.Add(line);
             }
-
             fileSR.Close();
-
         }
     }
 }

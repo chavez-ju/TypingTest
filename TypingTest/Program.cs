@@ -11,10 +11,9 @@ namespace TypingTest
         static void Main(string[] args)
         {
             TypingTester tester = new TypingTester();
-            //ConsoleKeyInfo cki = new ConsoleKeyInfo();
             Stopwatch sw = new Stopwatch();
 
-            Console.WriteLine("Start Typing when you are ready!\n");
+            Console.WriteLine("Start Typing when you are ready! Press Enter key when you are finished. \n");
             Console.WriteLine(tester.SentenceDisplay());
 
             string userString = "";
@@ -75,7 +74,6 @@ namespace TypingTest
             Console.WriteLine("\nNetWPM: " + tester.NetWPM(errors, sw));
             Console.WriteLine("Accuracy: " + tester.Accuracy(correct, tester.SentenceDisplay().Length) + "%");
             Console.WriteLine(tester.TypedEntries);
-            
         }
     }
 }

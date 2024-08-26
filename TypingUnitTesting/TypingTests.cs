@@ -53,7 +53,7 @@ namespace TypingUnitTesting
 
             Assert.AreEqual(expected, actual);
             
-            
+
         }
     }
 }

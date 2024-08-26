@@ -9,7 +9,6 @@ namespace TypingTest
     public class Sentence
     {
         public string SentenceStr {  get; set; }
-
         public Sentence()
         {
             SentenceLibrary sentenceLibrary = new SentenceLibrary();

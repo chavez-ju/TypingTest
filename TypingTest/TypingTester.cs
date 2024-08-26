@@ -11,11 +11,8 @@ namespace TypingTest
     public class TypingTester
     {
         public const double GrossConst = 5.0;
-
         public double TypedEntries {  get; set; }
-
         public Sentence sentence { get; set; }
-
         public TypingTester()
         {
             TypedEntries = 0.0;
@@ -45,10 +42,7 @@ namespace TypingTest
             int colSize = s1.Length;
             int rowSize = s2.Length;
 
-            // {1, 2, 3},
-            // {4, 5, 6}
             int[,] table = new int[rowSize, colSize];
-
 
             // initialize first row
             for (int i = 0; i < colSize; i++)
@@ -80,20 +74,16 @@ namespace TypingTest
 
                         table[i, j] = least + 1;
                     }
-
                 }
             }
-
             return table[rowSize - 1, colSize - 1];
         }
-
         public int NetWPM(int errors, Stopwatch sw)
         {
             TimeSpan tw = sw.Elapsed;
             double grossDouble = Math.Abs(((TypedEntries / GrossConst) - errors)) / tw.TotalMinutes;
             return Convert.ToInt32(Math.Round(grossDouble, 0));
         }
-
         public double Accuracy(int correct, int total)
         {
             return (Convert.ToDouble(correct) / Convert.ToDouble(total) * 100);

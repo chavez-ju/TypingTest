@@ -1,1 +1,1 @@
-Initial 1.0 Version of my Speed Typing Test. User is prompted to with a random sentence and some typing statstics are calculated and shown once the user completes the prompt.
+Initial 1.0 Version of my Speed Typing Test. User is prompted with a random sentence and tasked to type the sentence as correctly and quickly as possible, resulting in user performance statistics being calculcated and shown.
